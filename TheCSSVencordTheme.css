@@ -1,0 +1,183 @@
+:root, .theme-dark, .theme-light, .theme-darker, .theme-midnight, .visual-refresh {
+  --text-normal: #fff;
+  --text-default: #fff;
+  --text-muted: #e9ddff;
+  --text-subtle: #d6c4f5;
+  --header-primary: #fff;
+  --header-secondary: #f1e8ff;
+  --channels-default: #fff;
+  --channel-icon: #fff;
+  --interactive-normal: #fff;
+  --interactive-hover: #fff;
+  --interactive-active: #fff;
+  --interactive-icon-default: #fff;
+  --interactive-text-default: #fff;
+  --background-primary: transparent;
+  --background-secondary: transparent;
+  --background-secondary-alt: transparent;
+  --background-tertiary: transparent;
+  --background-base-lowest: transparent;
+  --background-base-lower: transparent;
+  --background-base-low: transparent;
+  --background-surface-high: transparent;
+  --background-surface-higher: transparent;
+  --background-surface-highest: transparent;
+  --chat-background-default: transparent;
+  --bg-base-primary: transparent;
+  --bg-base-secondary: transparent;
+  --bg-base-tertiary: transparent;
+  --app-frame-background: transparent;
+  --guild-list-background: transparent;
+  --channel-list-background: transparent;
+  --members-list-background: transparent;
+}
+
+:root {
+  --pill: rgba(8, 4, 20, .82);
+  --pill-hover: rgba(40, 20, 80, .9);
+  --edge: rgba(255, 255, 255, .08);
+  --shadow: 0 2px 10px rgba(0, 0, 0, .35);
+  --indent: var(--custom-message-margin-left-content-cozy, 72px);
+  --sky:
+    radial-gradient(ellipse at 35% 28%, #f067f7 0%, #c255f1 22%, transparent 58%),
+    radial-gradient(ellipse at 72% 35%, #a43ae5 0%, transparent 55%),
+    radial-gradient(ellipse at 75% 72%, #3e1fcb 0%, transparent 60%),
+    linear-gradient(to bottom, #9f80a4 0%, #a982ae 15%, #bda2cc 40%, #685197 60%, #28155d 78%, #120045 100%);
+}
+
+html, body {
+  background: var(--sky) fixed !important;
+  background-size: cover !important;
+}
+
+#app-mount, #app-mount [class*="appAsidePanelWrapper"], #app-mount [class*="app_"],
+#app-mount [class*="bg_"], #app-mount [class*="layers_"], #app-mount [class*="layer_"],
+#app-mount [class*="base_"], #app-mount [class*="content_"], #app-mount [class*="chat_"],
+#app-mount [class*="chatContent"], #app-mount [class*="sidebar"], #app-mount [class*="members"],
+#app-mount [class*="privateChannels"], #app-mount [class*="titleBar"] {
+  background: transparent !important;
+}
+
+#app-mount nav[class*="guilds"],
+#app-mount nav[aria-label*="Servers"],
+#app-mount section[class*="panels"],
+#app-mount [class*="channelTextArea"],
+#app-mount [class*="member_"],
+#app-mount h3[class*="header"],
+#app-mount [class*="messageContent"],
+#app-mount [class*="sidebar"] [class*="interactive"],
+#app-mount [class*="sidebar"] [class*="link_"],
+#app-mount [class*="privateChannels"] [class*="interactive"],
+#app-mount [class*="privateChannels"] [class*="link_"],
+#app-mount [class*="privateChannels"] [class*="channel_"] {
+  background: var(--pill) !important;
+  border: 1px solid var(--edge) !important;
+  border-radius: 12px !important;
+  box-shadow: var(--shadow) !important;
+  backdrop-filter: blur(10px) saturate(140%);
+  transition: background .2s, transform .2s, box-shadow .2s;
+}
+
+#app-mount [class*="member_"]:hover,
+#app-mount [class*="sidebar"] [class*="interactive"]:hover,
+#app-mount [class*="privateChannels"] [class*="interactive"]:hover,
+#app-mount [class*="privateChannels"] [class*="channel_"]:hover,
+#app-mount [class*="messageContent"]:hover {
+  background: var(--pill-hover) !important;
+}
+
+#app-mount [class*="member_"]:hover,
+#app-mount [class*="sidebar"] [class*="interactive"]:hover,
+#app-mount [class*="privateChannels"] [class*="channel_"]:hover {
+  transform: translateX(2px);
+}
+
+#app-mount h3[class*="header"] {
+  width: fit-content;
+  max-width: 100%;
+  padding: 3px 12px;
+}
+
+#app-mount [class*="hasReply"] h3[class*="header"] {
+  margin-left: var(--indent) !important;
+  text-indent: 0 !important;
+}
+
+#app-mount [class*="messageContent"] {
+  display: block;
+  width: fit-content;
+  max-width: calc(100% - 90px);
+  padding: 5px 12px;
+  margin: 4px 0 2px var(--indent) !important;
+  text-indent: 0 !important;
+  line-height: 1.4;
+  position: relative;
+  animation: drift 7s ease-in-out infinite;
+}
+
+@keyframes drift {
+  0%, 100% { transform: translateY(-.4px); }
+  50% { transform: translateY(.4px); }
+}
+
+#app-mount [class*="repliedMessage"] {
+  background: transparent !important;
+  margin-bottom: 4px;
+}
+
+#app-mount [class*="repliedMessage"] [class*="messageContent"],
+#app-mount [class*="repliedMessage"] [class*="repliedTextContent"],
+#app-mount [class*="repliedMessage"] h3 {
+  all: unset;
+  color: #fff;
+}
+
+#app-mount [class*="name_"], #app-mount [class*="channelName"], #app-mount [class*="username"],
+#app-mount [class*="messageContent"], #app-mount [class*="markup"], #app-mount [class*="link_"],
+#app-mount [class*="timestamp"], #app-mount [class*="sidebar"] svg {
+  color: #fff !important;
+}
+
+#app-mount [class*="avatar"] img {
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, .25), 0 0 14px rgba(196, 85, 241, .6);
+}
+
+#app-mount [class*="hasReply"] [class*="avatar"] { z-index: 2; }
+
+#app-mount [class*="channelTextArea"]:focus-within {
+  box-shadow: 0 0 0 2px rgba(240, 103, 247, .55), var(--shadow) !important;
+}
+
+#app-mount [class*="markup"] code,
+#app-mount [class*="markup"] pre {
+  background: rgba(0, 0, 0, .55) !important;
+  border: 1px solid var(--edge) !important;
+  border-radius: 8px !important;
+}
+
+#app-mount [class*="mention"] {
+  background: rgba(240, 103, 247, .28) !important;
+  border-radius: 6px;
+  padding: 0 3px;
+}
+
+#app-mount [class*="imageWrapper"],
+#app-mount [class*="embedWrapper"],
+#app-mount [class*="attachment"] {
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+
+#app-mount [class*="selected"] [class*="link_"],
+#app-mount [class*="selected"] [class*="interactive"] {
+  background: rgba(120, 50, 200, .85) !important;
+  border-color: rgba(255, 255, 255, .25) !important;
+}
+
+#app-mount ::-webkit-scrollbar { width: 8px; }
+#app-mount ::-webkit-scrollbar-track { background: transparent; }
+#app-mount ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, .35); border-radius: 8px; }
+#app-mount ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, .6); }
+
+::selection { background: rgba(240, 103, 247, .6); }
